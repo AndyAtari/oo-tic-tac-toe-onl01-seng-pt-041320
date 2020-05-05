@@ -16,4 +16,7 @@ class TicTacToe
 end
 
 def display_board
+  puts @board 
+end
+end
 
