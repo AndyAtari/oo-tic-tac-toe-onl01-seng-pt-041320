@@ -78,10 +78,10 @@ end
   end
 
   def draw?
-    if !full? || won?
-      return false
+   if !full? || won?
+       false
     else
-      return true
+       true
     end
   end
 
