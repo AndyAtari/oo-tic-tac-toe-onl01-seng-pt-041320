@@ -87,10 +87,7 @@ end
   end
 
  def winner
-  if won?
   @board[won?.first]
- else nil
- end
  end
 
  def play
