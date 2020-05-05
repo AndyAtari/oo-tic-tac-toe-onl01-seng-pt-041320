@@ -87,7 +87,7 @@ end
   end
 
  def winner
-   won? = win 
+   won? = win
   @board[win.first]
  end
 
