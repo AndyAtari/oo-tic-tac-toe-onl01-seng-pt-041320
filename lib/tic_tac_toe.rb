@@ -63,7 +63,10 @@ counter
 end
 
 def current_player
-   turn_count.even? == "X" || turn_count.odd? == "O"
+  if turn_count.even?
+     "X"
+   else
+     "O"
   end
 
   def won?
