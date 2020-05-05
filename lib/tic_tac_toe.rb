@@ -68,6 +68,7 @@ def current_player
    else
      "O"
   end
+end
 
   def won?
     WIN_COMBINATIONS.find do |win_combination|
