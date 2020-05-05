@@ -78,12 +78,9 @@ end
   end
 
   def draw?
-   if !full? || won?
-       false
-    else
-       true
-    end
-  end
+   full? && !won?
+ end
+
 
   def over?
     won? || full? || draw?
