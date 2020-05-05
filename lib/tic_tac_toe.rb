@@ -27,5 +27,97 @@ def input_to_index(user_input)
   user_input.to_i -1
 end
 
+def move(index, value)
+  @board[index] = value.upcase
+end
+
+def position_taken?(index)
+  if @board[index] == " "
+  return false
+  elsif @board[index] == "" || @board[index] == nil
+  return false
+else
+  return true
+end
+end
+
+def valid_move?(index)
+  if index.between?(0, 8) && !position_taken?(index)
+    return true
+  else
+    return false
+end
+end
+
+def turn
+  puts "Please enter 1-9:"
+  number = gets.strip
+  index = input_to_index(number)
+  if valid_move?(index) == true
+    move(index, current_player)
+    display_board
+  else
+    turn
+end
+end
+
+def turn_count
+  counter = 0
+@board.each do |turn|
+  if turn == "X" || turn == "O"
+    counter += 1
+  end
+end
+return counter
+end
+
+def current_player
+   turn_count.even?? "X" : "O"
+  end
+
+  def won?
+    WIN_COMBINATIONS.find do |win_combination|
+      win_combination.all? {|win_index| @board[win_index] == "X"} ||
+      win_combination.all? {|win_index| @board[win_index] == "O"}
+    end
+  end
+
+  def full?
+    @board.none? {|move| move == " "}
+  end
+
+  def draw?
+    if !full? || won?
+      return false
+    else
+      return true
+    end
+  end
+
+  def over?
+    won? || full? || draw?
+  end
+
+ def winner
+  if won?
+  @board[won?.first]
+ else nil
+ end
+ end
+
+ def play
+   until over?
+     turn
+   end
+   if won?
+     puts "Congratulations #{winner}!"
+   else draw?
+     puts "Cat's Game!"
+   end
+ end
+
+end
+
+
 
 end
